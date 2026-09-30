@@ -38,4 +38,18 @@ function operate(operator , firstNumber , secondNumber){
             return "invalid Option !!";
     }
 }
-console.log(operate(operator, firstNumber, secondNumber));
+const display = document.querySelector("input");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach( item => {
+    item.addEventListener('click', function (e){
+        const num = item.textContent;
+        if(display.value ==="0"){
+            display.value = num;
+        }else{
+            display.value +=num;
+        }
+        
+
+    })
+});
