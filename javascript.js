@@ -13,6 +13,12 @@ function multiply(a , b){
 function divide(a , b){
     return a / b;
 }
+
+const firstNumber = 7;
+const operator = "+";
+const secondNumber = 12;
+
+console.log(firstNumber + operator + secondNumber);
 console.log(add(3, 5));
 console.log(subtract(10, 4));
 console.log(multiply(6, 6));
