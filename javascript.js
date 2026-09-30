@@ -15,11 +15,27 @@ function divide(a , b){
 }
 
 const firstNumber = 7;
-const operator = "+";
+const operator = "-";
 const secondNumber = 12;
 
-console.log(firstNumber + operator + secondNumber);
-console.log(add(3, 5));
-console.log(subtract(10, 4));
-console.log(multiply(6, 6));
-console.log(divide(20, 5))
+function operate(operator , firstNumber , secondNumber){
+
+    switch(operator)
+    {
+        case "+":
+            return add(firstNumber , secondNumber);
+
+        case "-":
+            return subtract(firstNumber , secondNumber);
+
+        case "*":
+            return multiply(firstNumber , secondNumber);
+
+        case "/":
+           return divide(firstNumber , secondNumber);
+
+        default:
+            return "invalid Option !!";
+    }
+}
+console.log(operate(operator, firstNumber, secondNumber));
