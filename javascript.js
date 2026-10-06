@@ -14,9 +14,6 @@ function divide(a , b){
     return a / b;
 }
 
-const firstNumber = 7;
-const operator = "-";
-const secondNumber = 12;
 
 function operate(operator , firstNumber , secondNumber){
 
@@ -41,14 +38,80 @@ function operate(operator , firstNumber , secondNumber){
 const display = document.querySelector("input");
 const buttons = document.querySelectorAll("button");
 
+const numaric ="+-*/";
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
+let justCalculated = false;
+
 buttons.forEach( item => {
     item.addEventListener('click', function (e){
+
         const num = item.textContent;
-        if(display.value ==="0"){
-            display.value = num;
+        if(numaric.includes(num)){
+
+             if(operator && firstNumber !==""
+                 && secondNumber !==""){
+
+                const result = operate(
+                    operator,
+                    Number(firstNumber),
+                    Number(secondNumber)
+                );
+                firstNumber = Number(result.toFixed(10));
+                secondNumber ="";
+                display.value = Number(result.toFixed(10));
+                justCalculated = true;
+                }else {
+                    display.value = "";
+                }
+
+            
+          operator = num; 
+           
+            
+          
+        }else if(num == "="){
+
+            if(operator && firstNumber !==""
+                 && secondNumber !==""){
+
+                const result = operate(
+                    operator,
+                    Number(firstNumber),
+                    Number(secondNumber)
+                );
+                display.value = Number(result.toFixed(10));
+                firstNumber = result;
+                secondNumber = "";
+                // No operator means a completely new calculation
+                operator = "";
+                justCalculated = true;
+            }
+
         }else{
-            display.value +=num;
+            if(justCalculated){
+                display.value = "";
+
+                // If there is no operator
+                // this is a completely new calculation
+                if(operator ==="")
+                firstNumber = "";
+
+                secondNumber = "";
+                justCalculated = false;
+            }
+           
+           operator ? secondNumber += num: firstNumber+=num;
+    
+           if(display.value ==="0" && num !=="."){
+            display.value = num;
+
+        }else{
+            display.value += num;
         }
+        }
+        
         
 
     })
