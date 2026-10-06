@@ -16,24 +16,29 @@ function divide(a , b){
 
 
 function operate(operator , firstNumber , secondNumber){
-
+    let result ;
     switch(operator)
     {
         case "+":
-            return add(firstNumber , secondNumber);
+            result = add(firstNumber , secondNumber);
+            break;
 
         case "-":
-            return subtract(firstNumber , secondNumber);
+            result = subtract(firstNumber , secondNumber);
+            break;
 
         case "*":
-            return multiply(firstNumber , secondNumber);
+            result = multiply(firstNumber , secondNumber);
+            break;
 
         case "/":
-           return divide(firstNumber , secondNumber);
+           result = divide(firstNumber , secondNumber);
+           break;
 
         default:
             return "invalid Option !!";
     }
+    return Number(result.toFixed(10));
 }
 const display = document.querySelector("input");
 const buttons = document.querySelectorAll("button");
@@ -58,9 +63,9 @@ buttons.forEach( item => {
                     Number(firstNumber),
                     Number(secondNumber)
                 );
-                firstNumber = Number(result.toFixed(10));
+                firstNumber = result;
                 secondNumber ="";
-                display.value = Number(result.toFixed(10));
+                display.value = result;
                 justCalculated = true;
                 }else {
                     display.value = "";
@@ -81,7 +86,7 @@ buttons.forEach( item => {
                     Number(firstNumber),
                     Number(secondNumber)
                 );
-                display.value = Number(result.toFixed(10));
+                display.value = result;
                 firstNumber = result;
                 secondNumber = "";
                 // No operator means a completely new calculation
@@ -101,7 +106,13 @@ buttons.forEach( item => {
                 secondNumber = "";
                 justCalculated = false;
             }
-           
+           if (num === ".") {
+                const currentNumber = operator ? secondNumber : firstNumber;
+
+                if (currentNumber.includes(".")) {
+                    return;
+            }
+}
            operator ? secondNumber += num: firstNumber+=num;
     
            if(display.value ==="0" && num !=="."){
