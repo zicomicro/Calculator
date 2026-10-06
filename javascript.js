@@ -106,13 +106,23 @@ buttons.forEach( item => {
                 secondNumber = "";
                 justCalculated = false;
             }
-           if (num === ".") {
+             if(num==="C")
+            {
+                firstNumber = "";
+                operator = "";
+                secondNumber = "";
+                justCalculated = false;
+                display.value = "";
+                return;
+            }else if (num === ".") {
                 const currentNumber = operator ? secondNumber : firstNumber;
 
                 if (currentNumber.includes(".")) {
                     return;
-            }
-}
+                    }
+           
+                            }
+                            
            operator ? secondNumber += num: firstNumber+=num;
     
            if(display.value ==="0" && num !=="."){
