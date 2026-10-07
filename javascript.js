@@ -50,10 +50,7 @@ let operator = "";
 let secondNumber = "";
 let justCalculated = false;
 
-buttons.forEach( item => {
-    item.addEventListener('click', function (e){
-
-        const num = item.textContent;
+function processInput(num){
         if(numeric.includes(num)){
             if(num === "-" && firstNumber === ""){
                 firstNumber = "-";
@@ -152,5 +149,26 @@ buttons.forEach( item => {
         
         
 
-    })
+};
+
+buttons.forEach((item) => {
+    item.addEventListener("click", () => {
+        processInput(item.textContent);
+    });
+});
+
+// Keyboard support
+window.addEventListener("keydown", (e) => {
+    let key = e.key;
+
+    if (key === "Enter") key = "=";
+    if (key === "Escape") key = "C";
+    if (key === "Backspace") key = "⌫";
+
+    const validKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", "=", "C", "⌫", "."];
+
+    if (validKeys.includes(key)) {
+        e.preventDefault();
+        processInput(key);
+    }
 });
