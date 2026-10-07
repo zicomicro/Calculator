@@ -43,7 +43,7 @@ function operate(operator , firstNumber , secondNumber){
 const display = document.querySelector("input");
 const buttons = document.querySelectorAll("button");
 
-const numaric ="+-*/";
+const numeric ="+-*/";
 let firstNumber = "";
 let operator = "";
 let secondNumber = "";
@@ -53,7 +53,12 @@ buttons.forEach( item => {
     item.addEventListener('click', function (e){
 
         const num = item.textContent;
-        if(numaric.includes(num)){
+        if(numeric.includes(num)){
+            if(num === "-" && firstNumber === ""){
+                firstNumber = "-";
+                display.value ="-";
+                return;
+            }
 
              if(operator && firstNumber !==""
                  && secondNumber !==""){
