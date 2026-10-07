@@ -11,7 +11,7 @@ function multiply(a , b){
 }
 
 function divide(a , b){
-    return b ===0 ? 0 : a / b;
+    return b === 0 ? "Nice try! 😂" : a / b;
 }
 
 
@@ -38,6 +38,7 @@ function operate(operator , firstNumber , secondNumber){
         default:
             return "invalid Option !!";
     }
+    if (typeof result === "string") return result;
     return Number(result.toFixed(10));
 }
 const display = document.querySelector("input");
