@@ -1,27 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    font-family: "ADLaM Display", sans-serif;
+}
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 16px;
 
+}
+.wrapper h1 {
+    color: #f4f4f4;
+    font-size: 28px;
+    letter-spacing: 1px;
 }
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 10px;
-    border-radius: 5px;
-    gap: 4px;
-    background-color: rgb(55, 55, 55);
+    padding: 20px 16px;
+    border-radius: 9px;
+    gap: 8px;
+    background-color: rgb(45, 45, 45);
+}
+.display {
+    width: 250px;
+    height: 54px;
+    margin-bottom: 6px;
+}
+.display input {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    color: #00ff66;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 24px;
+    text-align: right;
+    font-family: inherit;
+    outline: none;
 }
 .row {
     display: flex;
-    gap: 3px;
-}
-.display {
-    display: flex;
-    width:250px ;
-    height: 40px;
+    width: 250px;
+    gap: 6px;
 }
 button {
     width: 60px;
@@ -30,12 +62,25 @@ button {
     border: none;
     font-size: 16px;
     font-family: "ADLaM Display" , sans-serif;
-}
-.display input {
-    flex: 1;
-    font-size: 16px;
-    font-family: "ADLaM Display" , sans-serif;
-}
+    cursor: pointer;
+} 
 .equal {
-    width: 123px;
+    flex: 3;
+}
+.backspace {
+    flex: 1;
+}
+button:hover {
+    background-color: #fb6d075c;
+    color: rgb(255, 255, 255);
+}
+.equal:hover {
+    background-color: #28fb075c;
+}
+.backspace:hover {
+    background-color: red;
+}
+.op:hover {
+    background-color: rgb(207, 119, 12);
+    color: white;
 }
