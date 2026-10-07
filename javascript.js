@@ -99,7 +99,18 @@ buttons.forEach( item => {
                 justCalculated = true;
             }
 
-        }else{
+        }else  if(num === "⌫"){
+
+            if(operator === ""){
+                firstNumber = String(firstNumber).slice(0,-1);
+                display.value = firstNumber || "0";
+            }else{
+                secondNumber = secondNumber.slice(0,-1);
+                display.value = secondNumber || "0";
+            }
+            return;
+
+             }else{
             if(justCalculated){
                 display.value = "";
 
@@ -117,7 +128,7 @@ buttons.forEach( item => {
                 operator = "";
                 secondNumber = "";
                 justCalculated = false;
-                display.value = "";
+                display.value = "0";
                 return;
             }else if (num === ".") {
                 const currentNumber = operator ? secondNumber : firstNumber;
